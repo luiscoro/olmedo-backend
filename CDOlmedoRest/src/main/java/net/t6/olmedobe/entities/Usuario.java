@@ -3,6 +3,7 @@ import javax.persistence.*;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.sql.Date;
 import java.util.HashSet;
@@ -59,6 +60,18 @@ public class Usuario {
     @JoinColumn(name="id_localidad", nullable=false)
 	private Localidad localidad;
 
+
+	@OneToMany(mappedBy = "usuario")
+	@JsonIgnore
+    private Set<IntegranteClub> integrantes;
+	
+	public Set<IntegranteClub> getIntegrantes() {
+		return integrantes;
+	}
+
+	public void setIntegrantes(Set<IntegranteClub> integrantes) {
+		this.integrantes = integrantes;
+	}
 
 	public Usuario() {}
 	

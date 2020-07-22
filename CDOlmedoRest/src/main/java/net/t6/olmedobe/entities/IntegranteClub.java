@@ -1,44 +1,56 @@
-																/*
- -------------------------------------------------------------------
-|
-| CRUDyLeaf	- A Domain Specific Language for generating Spring Boot 
-|			REST resources from entity CRUD operations.
-| Author: Omar S. G�mez (2020)
-| File Date: Wed Jul 15 19:16:27 COT 2020
-| 
- -------------------------------------------------------------------
-																*/
 package net.t6.olmedobe.entities;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;	
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import java.util.UUID;
-import org.hibernate.annotations.Type;
+import javax.persistence.*;
 import java.sql.Date;
-import javax.persistence.Basic;
+
 	
 @Entity
-@Table(name = "integranteClub_table")
+@Table(name = "`integrante_club`")
 public class IntegranteClub {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_integrante")
 	private Long id;
 	
+	@Column(name="nombre_integrante")
 	private String nombre;
-	private String perfil;
-	@Basic
-	private Date fechaNacimiento;
-	private String equipoProcedencia;
-	private String paisProcedencia;
-	private Double estatura;
-	private Double peso;
-	private String funcion;
-	@Type(type = "uuid-char")
-	private UUID foto;
-	private Integer gol;
 	
+	@Column(name="perfil_integrante")
+	private String perfil;
+	
+	@Basic
+	@Column(name="fecha_nacimiento_integrante")
+	private Date fechaNacimiento;
+	
+	@Column(name="equipo_procedencia")
+	private String equipoProcedencia;
+	
+	@Column(name="pais_procedencia")
+	private String paisProcedencia;
+	
+	@Column(name="estatura_integrante")
+	private Double estatura;
+	
+	@Column(name="peso_integrante")
+	private Double peso;
+	
+	@Column(name="funcion_integrante")
+	private String funcion;
+	
+	@Lob
+	@Column(name="foto_integrante")
+	private byte[] foto;
+	
+	@ManyToOne
+    @JoinColumn(name="id_usuario", nullable=false)
+	private Usuario usuario;
+	
+	public IntegranteClub() {}
+
+	public IntegranteClub(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+
 	public Long getId() {
 		return id;
 	}
@@ -110,21 +122,21 @@ public class IntegranteClub {
 	public void setFuncion(String funcion) {
 		this.funcion = funcion;
 	}
-	
-	public UUID getFoto() {
+
+	public byte[] getFoto() {
 		return foto;
 	}
-	
-	public void setFoto(UUID foto) {
+
+	public void setFoto(byte[] foto) {
 		this.foto = foto;
 	}
-	
-	public Integer getGol() {
-		return gol;
+
+	public Usuario getUsuario() {
+		return usuario;
 	}
-	
-	public void setGol(Integer gol) {
-		this.gol = gol;
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
-	
+
 }

@@ -1,13 +1,3 @@
-																/*
- -------------------------------------------------------------------
-|
-| CRUDyLeaf	- A Domain Specific Language for generating Spring Boot 
-|			REST resources from entity CRUD operations.
-| Author: Omar S. Gómez (2020)
-| File Date: Wed Jul 15 19:16:27 COT 2020
-| 
- -------------------------------------------------------------------
-																*/
 package net.t6.olmedobe;
 
 import org.springframework.boot.SpringApplication;

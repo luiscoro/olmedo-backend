@@ -21,7 +21,6 @@ public class TipoServicio {
 	@JsonIgnore
     private Set<Servicio> servicios;
 	
-	
 	public Set<Servicio> getServicios() {
 		return servicios;
 	}
