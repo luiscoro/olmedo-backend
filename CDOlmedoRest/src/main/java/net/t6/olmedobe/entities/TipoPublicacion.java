@@ -9,6 +9,7 @@
  -------------------------------------------------------------------
 																*/
 package net.t6.olmedobe.entities;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;	
@@ -16,12 +17,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 	
 @Entity
-@Table(name = "tipoPublicacion_table")
+@Table(name = "`tipo_Publicacion`")
 public class TipoPublicacion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_tipo_publicacion")
 	private Long id;
 	
+	@Column(name="detalle_tipo_publicacion")
 	private String detalle;
 	
 	public Long getId() {
