@@ -39,9 +39,6 @@ public class Publicacion {
 	@Column(name="foto_publicacion")
 	private UUID foto;
 	
-	@Column(name="id_usuario")
-	private int idUsuario;
-	
 	@Column(name="id_tipo_publicacion")
 	private int idTipoPublicacion;
 	
@@ -93,14 +90,14 @@ public class Publicacion {
 		this.foto = foto;
 	} 
 	
-	public int getidUsuario() {
+	/*public int getidUsuario() {
 		return idUsuario;
 	}
 	
 	public void setidUsuario(int idUsuario) {
 		this.idUsuario = idUsuario;
-	}
-	
+	} */
+	 
 	public int getIdTipoPublicacion() {
 		return idTipoPublicacion;
 	}

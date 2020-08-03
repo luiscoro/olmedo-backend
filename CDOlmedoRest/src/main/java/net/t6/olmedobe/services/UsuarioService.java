@@ -10,7 +10,7 @@ import net.t6.olmedobe.entities.Usuario;
 import org.springframework.stereotype.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,10 +25,6 @@ public class UsuarioService {
 	
 	@Autowired
 	LocalidadRepository repol;
-	
-	
-	@Autowired
-	private PasswordEncoder PasswordEncoder;
 
 	public List<Usuario> getAll(){
 		List<Usuario> usuarioList = repou.findAll();
@@ -67,15 +63,7 @@ public class UsuarioService {
 	}
 	
 	public Usuario createUsuario(Usuario usuario) {
-		Localidad loc = repol.findById(usuario.getLocalidad().getId()).orElse(null);
-        if (null == loc) {
-            loc = new Localidad();
-        }
-        usuario.setContrasenia(PasswordEncoder.encode(usuario.getContrasenia()));
-        loc.setPais(usuario.getLocalidad().getPais());
-        loc.setCiudad(usuario.getLocalidad().getCiudad());
-        usuario.setLocalidad(loc);
-       // usuario.setRoles(new Rol("hincha"));
+
 		return repou.save(usuario);
 	}
 

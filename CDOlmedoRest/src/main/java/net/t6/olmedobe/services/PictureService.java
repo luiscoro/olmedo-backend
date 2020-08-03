@@ -1,4 +1,4 @@
-package net.t6.olmedobe.security;
+package net.t6.olmedobe.services;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -10,12 +10,14 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.multipart.MultipartFile;
 
+import net.t6.olmedobe.security.FileStorageException;
+
 import org.springframework.stereotype.Service;
 
 @Service
 public class PictureService {
 	
-	//@Value("${upload.path}")
+	@Value("${upload.path}")
 	public String uploadDir;
 
     public void uploadPicture(MultipartFile file, UUID id) {
