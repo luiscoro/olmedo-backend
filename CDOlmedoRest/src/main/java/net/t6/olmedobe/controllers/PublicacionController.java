@@ -111,7 +111,7 @@ public class PublicacionController {
 		} 
 		
 		//publicacion.setidUsuario(4);
-		publicacion.setIdTipoPublicacion(1);
+		//publicacion.setIdTipoPublicacion(1);
 		service.createPublicacion(publicacion);
 		return new ResponseEntity<Publicacion>(publicacion, new HttpHeaders(), HttpStatus.OK);
 	}
