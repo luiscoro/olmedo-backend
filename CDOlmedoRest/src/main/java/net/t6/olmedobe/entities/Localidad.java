@@ -20,6 +20,7 @@ public class Localidad {
 	@Column(name="ciudad")
 	private String ciudad;
 	
+	/*
 	@OneToMany(mappedBy = "localidad")
 	@JsonIgnore
     private Set<Usuario> usuarios;
@@ -30,8 +31,8 @@ public class Localidad {
 
 	public void setUsuarios(Set<Usuario> usuarios) {
 		this.usuarios = usuarios;
-	}
-
+	} */
+	
 	public Long getId() {
 		return id;
 	}

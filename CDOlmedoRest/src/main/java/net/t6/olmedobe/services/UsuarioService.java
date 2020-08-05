@@ -3,9 +3,11 @@ package net.t6.olmedobe.services;
 
 import net.t6.olmedobe.repositories.LocalidadRepository;
 import net.t6.olmedobe.repositories.UsuarioRepository;
+import net.t6.olmedobe.repositories.loginRepository;
 import net.t6.olmedobe.RecordNotFoundException;
 import net.t6.olmedobe.entities.Localidad;
 import net.t6.olmedobe.entities.Usuario;
+import net.t6.olmedobe.entities.login;
 
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,9 @@ public class UsuarioService {
 
 	@Autowired
 	UsuarioRepository repou;
+	
+	@Autowired
+	loginRepository repou1;
 	
 	@Autowired
 	LocalidadRepository repol;
@@ -44,6 +49,25 @@ public class UsuarioService {
 		}
 	}
 
+	public List<login> findByCorreoContaining(String correo){
+		List<login> usuarioList = repou1.findByCorreoContaining(correo);
+		if(usuarioList.size() > 0) {
+			return usuarioList;
+		} else {
+			return new ArrayList<login>();
+		}
+	}
+	/*
+	public List<login> findByContraseniaContaining(String contrasenia){
+		List<login> usuarioList = repou.findByCorreoContaining(contrasenia);
+		if(usuarioList.size() > 0) {
+			return usuarioList;
+		} else {
+			return new ArrayList<login>();
+		}
+	}*/
+	
+	
 	public List<Usuario> findBySexoContaining(String sexo){
 		List<Usuario> usuarioList = repou.findBySexoContaining(sexo);
 		if(usuarioList.size() > 0) {
@@ -84,6 +108,6 @@ public class UsuarioService {
 		} else {
 			throw new RecordNotFoundException("Record does not exist for the given Id");
 		}
-	}		
-	
+	}
+
 }

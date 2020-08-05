@@ -14,7 +14,7 @@ import javax.persistence.Column;
 import org.hibernate.annotations.CreationTimestamp;
 	
 @Entity
-@Table(name = "`publicacion`")
+@Table(name = "publicacion")
 public class Publicacion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -102,7 +102,7 @@ public class Publicacion {
 		return idTipoPublicacion;
 	}
 	
-	public void setIdTipoPublicacion(int idTipoPublicacion) {
+	public void setIdTipoPublicacion(int idTipoPublicacion1) {
 		this.idTipoPublicacion = idTipoPublicacion;
 	}
 	

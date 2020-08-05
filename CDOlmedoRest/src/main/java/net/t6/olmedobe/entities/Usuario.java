@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "`usuario`")
+@Table(name = "usuario")
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,26 +41,25 @@ public class Usuario {
 	
 	@Column(name="puntaje_beneficio")
 	private Long puntajeBeneficio;
-
+	
 	@Basic
 	@CreationTimestamp
 	@Column(name="fecha_creacion")
 	private Date fechaCreacion;
 	
-	
+	/*
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "usuario_roles",
             joinColumns = @JoinColumn(name = "id_usuario"),
             inverseJoinColumns = @JoinColumn(name = "id_rol")
             )
-	private Set<Rol> roles = new HashSet<>();
-	 
-	@ManyToOne
-    @JoinColumn(name="id_localidad", nullable=false)
-	private Localidad localidad;
+	private Set<Rol> roles = new HashSet<>(); */
+	
+    @Column(name="id_localidad")
+	private Long idLocalidad;
 
-
+	/*
 	@OneToMany(mappedBy = "usuario")
 	@JsonIgnore
     private Set<IntegranteClub> integrantes;
@@ -71,13 +70,13 @@ public class Usuario {
 
 	public void setIntegrantes(Set<IntegranteClub> integrantes) {
 		this.integrantes = integrantes;
-	}
+	}	
 
 	public Usuario() {}
 	
 	public Usuario(Localidad localidad) {
 		this.localidad = localidad;
-	}
+	} */
 
 	public Long getId() {
 		return id;
@@ -159,21 +158,21 @@ public class Usuario {
 		this.fechaCreacion = fechaCreacion;
 	}
 	
-	public Localidad getLocalidad() {
-		return localidad;
+	public Long getIdLocalidad() {
+		return idLocalidad;
 	}
 
-	public void setLocalidad(Localidad localidad) {
-		this.localidad = localidad;
+	public void setIdLocalidad(Long idLocalidad) {
+		this.idLocalidad = idLocalidad;
 	}
-	
+	/*
 	public Set<Rol> getRoles() {
 		return roles;
 	}
 
 	public void setRoles(Set<Rol> roles) {
 		this.roles = roles;
-	}
+	} */
 	
 	
 }

@@ -39,7 +39,7 @@ public class IntegranteClub {
 	@Lob
 	@Column(name="foto_integrante")
 	private byte[] foto;
-	
+	/*
 	@ManyToOne
     @JoinColumn(name="id_usuario", nullable=false)
 	private Usuario usuario;
@@ -48,8 +48,8 @@ public class IntegranteClub {
 
 	public IntegranteClub(Usuario usuario) {
 		this.usuario = usuario;
-	}
-
+	} */
+ 
 
 	public Long getId() {
 		return id;
@@ -130,13 +130,13 @@ public class IntegranteClub {
 	public void setFoto(byte[] foto) {
 		this.foto = foto;
 	}
-
+	/*
 	public Usuario getUsuario() {
 		return usuario;
 	}
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
+	} */
 
 }
